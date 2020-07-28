@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/img/2020/7/alg/fm_tree.jpeg">
 <meta property="og:image" content="http://yoursite.com/img/2020/7/alg/binery_tree.png">
 <meta property="article:published_time" content="2020-07-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-27T14:06:25.386Z">
+<meta property="article:modified_time" content="2020-07-28T06:30:11.623Z">
 <meta property="article:author" content="czpchen">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="树状数组">
@@ -191,7 +191,7 @@
 <p>问题描述：<br>给定一个数组$ a_1,a_2,a_3,…,a_n $<br>每次查询前缀和$ a_1 + a_2 + … + a_m  $<br>并且随时可能修改$ a_i $的值</p>
 <a id="more"></a>
 
-<p>暴力：修改复杂度为$ O(1) $，查询复杂度为$ O(n) $<br>利用树状数组结构可优化至：修改复杂度$ O(logn) $，查询复杂度也为$ O(logn) $</p>
+<p>暴力：修改$ O(1) $，查询$ O(n) $<br>树状数组的时间复杂度：修改$ O(logn) $，查询$ O(logn) $，空间$ O(n) $</p>
 <p>以一个大小为16的数组举例<br>原数组$ arr=[a_1,a_2,a_3,…,a_{16}] $<br>新建一个大小也为16的数组用来构建树状数组，该数组的每个元素含义如下：<br>树状数组$ tree=[t_1,t_2,t_3,…,t_{16}] $</p>
 <div align="center">
 <img src="/img/2020/7/alg/binery_tree.png" alt="drawing" />
@@ -326,6 +326,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/07/28/2020/7/tree_ch/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【bzoj】采花
+        
+      </div>
+    </a>
   
   
     <a href="/2020/07/21/2020/7/RESIDE/" id="article-nav-older" class="article-nav-link-wrap">
