@@ -156,6 +156,174 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2020/7/dual_regression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/16/2020/7/dual_regression/">利用对偶回归网络处理图像超分辨率任务</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/16/2020/7/dual_regression/" class="archive-article-date">
+  	<time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：通过学习从低分辨率(LR)图像到高分辨率(HR)图像的非线性映射函数，深度神经网络在图像超分辨率(SR)方面表现出了良好的性能。但是，现有的SR方法有两个潜在的局限性。 首先，学习从LR到HR图像的映射函数通常是一个病态的问题，因为存在无限的HR图像可以下采样到同一LR图像。 结果，可能功能的空间可能非常大，这使得很难找到一个好的解决方案。 其次，成对的LR-HR数据可能在实际中很难获取，并且潜在的降级方法通常是未知的。 对于这种的情况，现有的SR模型经常会引起适应性问题，并导致性能不佳。 为了解决上述问题，这篇文章提出了一个二元回归方案，通过引入额外的LR数据约束来减少可能函数的空间。特别是，除了从LR到HR图像的映射外，我们还学习了一个额外的双回归映射来估计下采样内核和 重建LR图像，形成一个闭环以提供额外的监控。 更重要的是，由于双重回归过程不依赖于HR图像，因此可以直接从LR图像中学习。 从这个意义上讲，可以轻松地将模型输出的SR数据转换为现实世界的数据，例如来自YouTube的原始视频帧。 </p>
+        
+          <a class="article-more-a" href="/2020/07/16/2020/7/dual_regression/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">半监督</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">超分辨</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/16/2020/7/dual_regression/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2020/7/dcpdn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/14/2020/7/dcpdn/">密集连接的金字塔除雾网络</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/14/2020/7/dcpdn/" class="archive-article-date">
+  	<time datetime="2020-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：这篇文章提出了一种新的端到端单图像除雾方法，称为密集连接金字塔除雾网络（DCPDN），该方法可以共同学习透射图，大气光和除雾。 通过将大气散射模型直接嵌入到网络中来实现端到端学习，从而确保所提出的方法严格遵循物理驱动的散射模型进行除雾。受到密集网络的启发，该网络可以在不同层次的功能之间使信息最大化，作者提出了一种具有多层次金字塔池化模块的紧密连接的编码器-解码器结构，该模块可以更好的保持边缘细节和用于估计传输图。 该网络使用新引入的边缘保留损失进行优化。 为了进一步结合估计的透射图和除雾后的结果之间的结构信息，提出了一种基于生成对抗网络框架的联合判别器，以确定相应的除雾图像和估计的透射图是否真实。 </p>
+        
+          <a class="article-more-a" href="/2020/07/14/2020/7/dcpdn/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">完全监督</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/14/2020/7/dcpdn/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2020/7/cycle_dehaze" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

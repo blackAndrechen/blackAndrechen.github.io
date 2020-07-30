@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/7 | czpchen</title>
+  <title>【leetcode】数组中的翻转对 | czpchen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="czpchen">
-<meta property="og:url" content="http://yoursite.com/archives/2020/07/page/2/index.html">
+  <meta name="description" content="题目链接：翻转对题目描述：给定一个数组 nums ，如果$ i &lt; j $且$ nums[i] &gt; 2*nums[j] $我们就将$ (i, j) $称作一个重要翻转对。你需要返回给定数组中的重要翻转对的数量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【leetcode】数组中的翻转对">
+<meta property="og:url" content="http://yoursite.com/2020/07/30/2020/7/reverse2/index.html">
 <meta property="og:site_name" content="czpchen">
+<meta property="og:description" content="题目链接：翻转对题目描述：给定一个数组 nums ，如果$ i &lt; j $且$ nums[i] &gt; 2*nums[j] $我们就将$ (i, j) $称作一个重要翻转对。你需要返回给定数组中的重要翻转对的数量。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-07-30T14:37:25.047Z">
 <meta property="article:author" content="czpchen">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="树状数组">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="czpchen" type="application/atom+xml">
@@ -154,255 +160,193 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2020/7/reverse2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【leetcode】数组中的翻转对
+    </h1>
+  
+
+        
+        <a href="/2020/07/30/2020/7/reverse2/" class="archive-article-date">
+  	<time datetime="2020-07-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目链接：<a href="https://leetcode-cn.com/problems/reverse-pairs/" target="_blank" rel="noopener">翻转对</a><br>题目描述：<br>给定一个数组 nums ，如果$ i &lt; j $且$ nums[i] &gt; 2*nums[j] $我们就将$ (i, j) $称作一个重要翻转对。你需要返回给定数组中的重要翻转对的数量。</p>
+<a id="more"></a>
+
+<p>示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">2</span></span><br><span class="line"></span><br><span class="line">输入: [<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>]</span><br><span class="line">输出: <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路一：离散化-树状数组"><a href="#思路一：离散化-树状数组" class="headerlink" title="思路一：离散化+树状数组"></a>思路一：离散化+树状数组</h3><p>该题与上一题<a href="https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/" target="_blank" rel="noopener">数组中的逆序对</a>有些类似，不同之处在于上一题是寻找满足 nums[i]&gt;nums[j] 的数组对，这题是寻找满足 nums[i] &gt; 2 * nums[j] 的数组对，这题不能像上一题那样直接离散化，因为离散化后数字信息会丢失，没办法比较两数字的大小是否满足  nums[i] &gt; 2*nums[j]  ，但我们仍可以间接的利用离散化信息更新树状数组，若不离散话，可能会出现数组元素很少但树状数组非常大的情况。</p>
+<p>设$ nums $是原数组，$ arr $是排序后的数组， $ lowerbound()  $函数是二分查找有序数组中第一个大于等于$ num $的数字的索引。</p>
+<p>逆序遍历过程<br>更新树状数组：将该元素的排名添加到树状数组中，即$ update(lowerbound(arr.begin(),arr.end(),nums[i])-arr.begin()+1,1) $<br>查询满足条件的逆序对：便利到某元素时，查询数组中该元素后面满足条件的元素个数(因为是逆序遍历的，后面的元素已经全部添加到树状数组中了)，即满足$ \frac{nums[i]}{2} &gt;nums[j] $，因为数组中所有元素为整数，所以需要对$ \frac{nums[i]}{2} $向上去整，总的来说就是遍历到$ nums[i] $时，查找先前添加过的元素中有几个排名是小于$ \frac{nums[i]}{2} $的排名的，也许有点绕仔细体会一下，即$ query(lowerbound(arr.begin(),arr.end(),ceil(nums[i]/2.0))-arr.begin()) $</p>
+<p>总代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tree;<span class="comment">//树状数组是从索引1开始的</span></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> v)</span><span class="comment">//将第x个数加v</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(x&lt;=n)</span><br><span class="line">        &#123;</span><br><span class="line">            tree[x]+=v;</span><br><span class="line">            x+=lowbit(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> k)</span><span class="comment">//前k个数的和</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(k&gt;<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans+=tree[k];</span><br><span class="line">            k-=lowbit(k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reversePairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        n=nums.<span class="built_in">size</span>();</span><br><span class="line">        tree=<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(<span class="number">2</span>*n+<span class="number">5</span>,<span class="number">0</span>);</span><br><span class="line">        arr=nums;</span><br><span class="line">        sort(arr.<span class="built_in">begin</span>(),arr.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">int</span> j=<span class="built_in">ceil</span>(nums[i]/<span class="number">2.0</span>);</span><br><span class="line">            res+=query(lower_bound(arr.<span class="built_in">begin</span>(),arr.<span class="built_in">end</span>(),j)-arr.<span class="built_in">begin</span>());</span><br><span class="line">            update(lower_bound(arr.<span class="built_in">begin</span>(),arr.<span class="built_in">end</span>(),nums[i])-arr.<span class="built_in">begin</span>()+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="思路二：归并排序"><a href="#思路二：归并排序" class="headerlink" title="思路二：归并排序"></a>思路二：归并排序</h3><p>正常归并即可，每次合并前双指针检查左右两数组有多少满足条件的翻转对</p>
+<p>代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self,l,r,nums)</span>:</span></span><br><span class="line">        MAXI=<span class="number">2147483647</span>*<span class="number">2</span>+<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> l==r:</span><br><span class="line">            <span class="keyword">return</span> [nums[l]]</span><br><span class="line">        </span><br><span class="line">        mid=(l+r)//<span class="number">2</span></span><br><span class="line">        left=self.merge(l,mid,nums)</span><br><span class="line">        right=self.merge(mid+<span class="number">1</span>,r,nums)</span><br><span class="line"></span><br><span class="line">        i,j=<span class="number">0</span>,<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;len(left) <span class="keyword">or</span> j&lt;len(right):</span><br><span class="line">            ll=left[i] <span class="keyword">if</span> i&lt;len(left) <span class="keyword">else</span> MAXI</span><br><span class="line">            rr=right[j] <span class="keyword">if</span> j&lt;len(right) <span class="keyword">else</span> MAXI</span><br><span class="line">            <span class="keyword">if</span> ll&gt;rr*<span class="number">2</span>:</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.ans+=j</span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">        i,j,res=<span class="number">0</span>,<span class="number">0</span>,[]</span><br><span class="line">        <span class="keyword">while</span> i&lt;len(left) <span class="keyword">or</span> j&lt;len(right):</span><br><span class="line">            ll=left[i] <span class="keyword">if</span> i&lt;len(left) <span class="keyword">else</span> MAXI</span><br><span class="line">            rr=right[j] <span class="keyword">if</span> j&lt;len(right) <span class="keyword">else</span> MAXI</span><br><span class="line">            <span class="keyword">if</span> ll&lt;rr:</span><br><span class="line">                res.append(ll)</span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res.append(rr)</span><br><span class="line">                j+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reversePairs</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> len(nums)==<span class="number">0</span>:<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        self.ans=<span class="number">0</span></span><br><span class="line">        res=self.merge(<span class="number">0</span>,len(nums)<span class="number">-1</span>,nums)</span><br><span class="line">        <span class="keyword">return</span> self.ans</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/16/2020/7/dual_regression/" class="archive-article-date">
-  	<time datetime="2020-07-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/16/2020/7/dual_regression/">利用对偶回归网络处理图像超分辨率任务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">半监督</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">超分辨</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树状数组</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/30/2020/7/reverse2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/14/2020/7/dcpdn/" class="archive-article-date">
-  	<time datetime="2020-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/07/30/2020/7/reverse/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【leetcode】数组中的逆序对
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/28/2020/7/tree_hh/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【洛谷】HH的项链—统计某区间内不同数字的个数。</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/2020/7/dcpdn/">密集连接的金字塔除雾网络</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">完全监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/2020/7/cycle_dehaze/" class="archive-article-date">
-  	<time datetime="2020-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/2020/7/cycle_dehaze/">Cycle-Dehaze:加强版CycleGAN用于去雾</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">无监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/12/2020/7/aodnet/" class="archive-article-date">
-  	<time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/2020/7/aodnet/">端到端去雾网络：AOD-Net</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">完全监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/12/2020/7/dehaze_cgan/" class="archive-article-date">
-  	<time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/2020/7/dehaze_cgan/">利用条件生成对抗网络去雾</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">完全监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/07/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/07/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -426,8 +370,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
