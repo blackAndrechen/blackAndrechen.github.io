@@ -6,24 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>树状数组-解决动态区间和 | czpchen</title>
+  <title>Tag: 贪心 | czpchen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="树状数组是一个可以快速查询指定区间和的数据结构  问题描述：给定一个数组$ a_1,a_2,a_3,…,a_n $每次查询前缀和$ a_1 + a_2 + … + a_m  $并且随时可能修改$ a_i $的值">
-<meta property="og:type" content="article">
-<meta property="og:title" content="树状数组-解决动态区间和">
-<meta property="og:url" content="http://yoursite.com/2020/07/27/2020/7/binery_tree/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="czpchen">
+<meta property="og:url" content="http://yoursite.com/tags/%E8%B4%AA%E5%BF%83/index.html">
 <meta property="og:site_name" content="czpchen">
-<meta property="og:description" content="树状数组是一个可以快速查询指定区间和的数据结构  问题描述：给定一个数组$ a_1,a_2,a_3,…,a_n $每次查询前缀和$ a_1 + a_2 + … + a_m  $并且随时可能修改$ a_i $的值">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/img/2020/7/alg/fm_tree.jpeg">
-<meta property="og:image" content="http://yoursite.com/img/2020/7/alg/binery_tree.png">
-<meta property="article:published_time" content="2020-07-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-28T06:30:11.623Z">
 <meta property="article:author" content="czpchen">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="树状数组">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/img/2020/7/alg/fm_tree.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="czpchen" type="application/atom+xml">
   
@@ -163,91 +154,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2020/7/binery_tree" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      树状数组-解决动态区间和
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/08/11/2020/8/greed/" class="archive-article-date">
+  	<time datetime="2020-08-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/08/11/2020/8/greed/">贪心</a>
     </h1>
   
 
-        
-        <a href="/2020/07/27/2020/7/binery_tree/" class="archive-article-date">
-  	<time datetime="2020-07-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div align="left">
-<img src="/img/2020/7/alg/fm_tree.jpeg" alt="drawing" />
-</div>
-树状数组是一个可以快速查询指定区间和的数据结构
-
-<p>问题描述：<br>给定一个数组$ a_1,a_2,a_3,…,a_n $<br>每次查询前缀和$ a_1 + a_2 + … + a_m  $<br>并且随时可能修改$ a_i $的值</p>
-<a id="more"></a>
-
-<p>暴力：修改$ O(1) $，查询$ O(n) $<br>树状数组的时间复杂度：修改$ O(logn) $，查询$ O(logn) $，空间$ O(n) $</p>
-<p>以一个大小为16的数组举例<br>原数组$ arr=[a_1,a_2,a_3,…,a_{16}] $<br>新建一个大小也为16的数组用来构建树状数组，该数组的每个元素含义如下：<br>树状数组$ tree=[t_1,t_2,t_3,…,t_{16}] $</p>
-<div align="center">
-<img src="/img/2020/7/alg/binery_tree.png" alt="drawing" />
-</div>
-
-<p>其中<br>$ t_1=a_1 $<br>$ t_2=a_1+a_2 $<br>$ t_3=a_3 $<br>$ t_4=a_1+a_2+a_3+a_4 $<br>…<br>$ t_8=a_1+a_2+…+a_8 $</p>
-<p>以此类推，进一步你会发现$ t_n $存储的元素个数与n的二进制有关，具体来说就是：$ t_n $存储的元素个数=2^(n的二进制最右边0的个数)<br>比如：所有树状数组的奇数位都只存了一个元素，因为奇数的二进制数最右边都是1，2^0=1<br>$ t_2 $存储两个元素，2的二进制为10，最右边0的个数为1，2^1=2<br>$ t_4 $存储4个元素，4的二进制为100，2^2=4<br>$ t_{10} $存储2个元素，10的二进制为1010，最右边0的个数为1，2^1=2</p>
-<p>那么假设要查询$ sum(7)=a_1+a_2+…+a_6+a_7 $的值该如何操作呢<br>$ sum(7)=t_7+t_6+t_4 $<br>根据树状数组的特性，将上述的数字写成二进制，你会发现，6的二进制比7的二进制右边少了一个1，4的二进制比6又少了一个1。<br>7：111<br>6：110<br>4：100</p>
-<p>计算$ sum(11) $<br>11：1011<br>10：1010<br>8：1000<br>$ sum(11)=t_{11}+t_{10}+t_8 $</p>
-<p>那么如何根据给定的n计算出是由哪几个树状数组元素相加的呢，这里用到了$ lowbit(x) $，这个函数可以快速的返回最低位是1的，其他位为0的数字，比如输入10（1010）返回的是2（10），根据这个函数，每次我们用$ x-lowbit(x) $就可以的到所有的求和下标</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为什么有效呢，这里涉及到了补码以及反码。<br>以10为例<br>x=10的二进制为1010<br>-x=-10的二进制为0110<br>x&amp;(-x)=2的二进制为0010</p>
-<p>查询算法步骤：当想要查询一个$ sum(n) $，可以依据如下算法即可：</p>
-<ul>
-<li>step1:　令sum = 0，转第二步；</li>
-<li>step2:　假如n &lt;= 0，算法结束，返回sum值，否则$ sum = sum + t_n $，转第三步；</li>
-<li>step3: 令n = n – lowbit(n)，转第二步。</li>
-</ul>
-<p>了解了查询过程，修改过程只需反过来就行了。<br>修改算法步骤：给某个结点i加上x</p>
-<ul>
-<li>step1: 当i &gt; n时，算法结束，否则转第二步；</li>
-<li>step2: $ t_i = t_i + x $， i = i + lowbit(i)转第一步。</li>
-</ul>
-<p>一维树状数组代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">10001</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> tree[<span class="number">10001</span>]=&#123;<span class="number">0</span>&#125;;<span class="comment">//树状数组是从索引1开始的</span></span><br><span class="line"><span class="keyword">int</span> n=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> v)</span><span class="comment">//将第x个数加v</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(x&lt;=n)</span><br><span class="line">    &#123;</span><br><span class="line">        tree[x]+=v;</span><br><span class="line">        x+=lowbit(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> k)</span><span class="comment">//前k个数的和</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(k&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ans+=tree[k];</span><br><span class="line">        k-=lowbit(k);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        update(i+<span class="number">1</span>,arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">10</span>;<span class="comment">//前k个元素和，k&gt;=1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; query(k);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>二维树状数组</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tree[<span class="number">301</span>][<span class="number">301</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> n=<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">const</span> <span class="keyword">int</span> &amp;y,<span class="keyword">const</span> <span class="keyword">int</span> &amp;v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(;x&lt;=n;x+=(x&amp;(-x)))&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=y;j&lt;=n;j+=(j&amp;(-j)))&#123;</span><br><span class="line">            tree[x][j]+=v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">const</span> <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;x;x-=(x&amp;(-x)))&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=y;j;j-=(j&amp;(-j)))&#123;</span><br><span class="line">            res+=tree[x][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -257,121 +193,75 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">树状数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">挑战程序设计竞赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/27/2020/7/binery_tree/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2020/07/28/2020/7/tree_ch/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【洛谷】采花—统计区间内出现两次以上的数
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/07/21/2020/7/RESIDE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">雾天数据集-RESIDE</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/08/10/2020/8/interval_greed/" class="archive-article-date">
+  	<time datetime="2020-08-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-10</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/08/10/2020/8/interval_greed/">区间贪心</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">挑战程序设计竞赛</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -394,9 +284,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
