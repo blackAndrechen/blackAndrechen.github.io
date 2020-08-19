@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>czpchen</title>
+  <title>需稍加思考的动态规划题目 | czpchen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="czpchen">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  <meta name="description" content="《挑战程序设计竞赛》初级篇  2.3 记录结果再利用的“动态规划”—思考篇 POJ 1065:Wodden Sticks&lt;题目链接&gt;POJ 1631:Bridging signals&lt; 题目链接&gt;POJ 3666:Making the Grade&lt;题目链接&gt;POJ 2392:Space Elevator&lt;题目链接&gt;POJ 2184:Cow Exhib">
+<meta property="og:type" content="article">
+<meta property="og:title" content="需稍加思考的动态规划题目">
+<meta property="og:url" content="http://yoursite.com/2020/08/19/2020/8/dp_har/index.html">
 <meta property="og:site_name" content="czpchen">
+<meta property="og:description" content="《挑战程序设计竞赛》初级篇  2.3 记录结果再利用的“动态规划”—思考篇 POJ 1065:Wodden Sticks&lt;题目链接&gt;POJ 1631:Bridging signals&lt; 题目链接&gt;POJ 3666:Making the Grade&lt;题目链接&gt;POJ 2392:Space Elevator&lt;题目链接&gt;POJ 2184:Cow Exhib">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-19T03:12:33.812Z">
 <meta property="article:author" content="czpchen">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="挑战程序设计竞赛">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="czpchen" type="application/atom+xml">
@@ -154,118 +161,126 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-2020/7/dcpdn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-2020/8/dp_har" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/14/2020/7/dcpdn/">密集连接的金字塔除雾网络</a>
+    <h1 class="article-title" itemprop="name">
+      需稍加思考的动态规划题目
     </h1>
   
 
         
-        <a href="/2020/07/14/2020/7/dcpdn/" class="archive-article-date">
-  	<time datetime="2020-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
+        <a href="/2020/08/19/2020/8/dp_har/" class="archive-article-date">
+  	<time datetime="2020-08-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：这篇文章提出了一种新的端到端单图像除雾方法，称为密集连接金字塔除雾网络（DCPDN），该方法可以共同学习透射图，大气光和除雾。 通过将大气散射模型直接嵌入到网络中来实现端到端学习，从而确保所提出的方法严格遵循物理驱动的散射模型进行除雾。受到密集网络的启发，该网络可以在不同层次的功能之间使信息最大化，作者提出了一种具有多层次金字塔池化模块的紧密连接的编码器-解码器结构，该模块可以更好的保持边缘细节和用于估计传输图。 该网络使用新引入的边缘保留损失进行优化。 为了进一步结合估计的透射图和除雾后的结果之间的结构信息，提出了一种基于生成对抗网络框架的联合判别器，以确定相应的除雾图像和估计的透射图是否真实。 </p>
-        
-          <a class="article-more-a" href="/2020/07/14/2020/7/dcpdn/#more">more >></a>
-        
+        <p>《挑战程序设计竞赛》初级篇  2.3 记录结果再利用的“动态规划”—思考篇</p>
+<p><a href="#t1">POJ 1065:Wodden Sticks</a>&lt;<a href="http://poj.org/problem?id=1065" target="_blank" rel="noopener">题目链接</a>&gt;<br><a href="#t2">POJ 1631:Bridging signals</a>&lt; <a href="http://poj.org/problem?id=1631" target="_blank" rel="noopener">题目链接</a>&gt;<br><a href="#t3">POJ 3666:Making the Grade</a>&lt;<a href="http://poj.org/problem?id=3666" target="_blank" rel="noopener">题目链接</a>&gt;<br><a href="#t4">POJ 2392:Space Elevator</a>&lt;<a href="http://poj.org/problem?id=2392" target="_blank" rel="noopener">题目链接</a>&gt;<br><a href="#t5">POJ 2184:Cow Exhibition</a>&lt;<a href="http://poj.org/problem?id=2184" target="_blank" rel="noopener">题目链接</a>&gt;</p>
+<a id="more"></a>
+
+<h2 id="Wodden-Sticks"><a href="#Wodden-Sticks" class="headerlink" title="Wodden Sticks"></a><span id="t1">Wodden Sticks</span></h2><p>题目描述：给定若干木棍的起点和终点，要加工这些木棍。设置初始时加工的木棍需要1分钟的等待时间，设初始木棍起点为l,终点为w,其后木棍起点为l’，终点为w’。其后若满足条件：l’&gt;=l &amp;&amp; w’&gt;=w则加工该木棍不需要等待时间。问加工这些木棍需要的最少等待时间？</p>
+<p>样例输入：</p>
+<blockquote>
+<p>3<br>5<br>4 9 5 2 2 1 3 5 1 4<br>3<br>2 2 1 1 2 2<br>3<br>1 3 2 2 3 1 </p>
+</blockquote>
+<p>样例输出：</p>
+<blockquote>
+<p>2<br>1<br>3<br>说明：第一个数据集（[1,4],[3,5],[4,9]）和（[2,1],[5,2]）<br>第二个数据集（[1,1],[2,2],[2,2]）<br>第三个数据集（[1,3]）和（[2,2]）和（[3,1]）</p>
+</blockquote>
+<p>思路：以起始点排序，若起始点相同则按终点排序，起始点满足l’&gt;=l ，只需检查终点可以构成几个递减子序，问题可以转化为以终点构成的序列中最长的递减子序列多长，求最长递减子序方法为：dp[i]表示以i位置为终点的最长递减子序列长度，转移方程$ dp[i]=max(dp[j]+1,dp[i]) $，时间复杂度O(n^2)。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> T,n;</span><br><span class="line">pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; arr[<span class="number">5050</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">5050</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        T--;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;arr[i].first&gt;&gt;arr[i].second;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sort(arr,arr+n);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[i]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;i;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[j].second&gt;arr[i].second)&#123;</span><br><span class="line">                    dp[i]=<span class="built_in">max</span>(dp[i],dp[j]+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            res=<span class="built_in">max</span>(res,dp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;res&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Bridging-signals"><a href="#Bridging-signals" class="headerlink" title="Bridging signals"></a><span id="t2">Bridging signals</span></h2><p>题目描述：给定n个数据集，每个数据集大小为p，接下来p个数，求最长递增子序。</p>
+<p>样例输入：</p>
+<blockquote>
+<p>4<br>6<br>4<br>2<br>6<br>3<br>1<br>5<br>10<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>1<br>8<br>8<br>7<br>6<br>5<br>4<br>3<br>2<br>1<br>9<br>5<br>8<br>9<br>2<br>3<br>1<br>7<br>4<br>6</p>
+</blockquote>
+<p>样例输出：</p>
+<blockquote>
+<p>3 9 1 4</p>
+</blockquote>
+<p>思路：最开始用的dp时间复杂度O(n^2)超时了，后来网上看了下找了个O(nlgon)的二分方法。从头遍历原数组，用一个数组记录递增序列，每次将原数组数字加到递增序列时，先二分查找，若找不到则加到末尾并且长度加1，若能找到可以替换的数，则直接替换</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> n,p;</span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">40050</span>];</span><br><span class="line"><span class="keyword">int</span> lis[<span class="number">40050</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span>(n&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        n--;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;p);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;p;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">1</span>,idx;</span><br><span class="line">        lis[<span class="number">0</span>]=arr[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;p;i++)&#123;</span><br><span class="line">            idx=lower_bound(lis,lis+l,arr[i])-lis;</span><br><span class="line">            lis[idx]=arr[i];</span><br><span class="line">            <span class="keyword">if</span>(idx==l)&#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;l&lt;&lt;<span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Making-the-Grade"><a href="#Making-the-Grade" class="headerlink" title="Making the Grade"></a><span id="t3">Making the Grade</span></h2><p>题目描述：给定一个序列，每个数字加1或减1的代价都是1，求把给定序列变为单调序列的最小代价，允许相邻数字相等。</p>
+<p>样例输入：</p>
+<blockquote>
+<p>7<br>1 3 2 4 5 3 9</p>
+</blockquote>
+<p>样例输出：</p>
+<blockquote>
+<p>3<br>说明：原序列转变为1 2 2 4 5 5 9代价为3</p>
+</blockquote>
+<p>思路：因为给定的数字为1e9，开不了这么大的数组，需要离散化后在排序。<br>以单调增说明：$ dp[i][j] $表示前i个数递增，且最后一个数为排序后第j大的总代价<br>arr为原数组，arr_s为排序后的数组，那么转移过程应该为：<br>把第i个数变为第j大的总代价=把第i-1个数变为第k大的代价+当前这个数的代价（其中k&lt;=j）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> N:</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> N:</span><br><span class="line">		<span class="keyword">for</span> k <span class="keyword">in</span> j+<span class="number">1</span>:</span><br><span class="line">			dp[i][j]=min(dp[i][j],dp[i<span class="number">-1</span>][k]+abs(arr_s[i]-arr[i]))</span><br></pre></td></tr></table></figure>
+<p>这里的第三重循环和二维dp数组可以优化成下面的形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> N:</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> N:</span><br><span class="line">		dp[i]+=abs(arr_s[i]-arr[i])</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> [<span class="number">1</span>,N]:</span><br><span class="line">		dp[j]=min(dp[j],dp[j<span class="number">-1</span>])</span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line">ll arr[<span class="number">2050</span>],arr_s[<span class="number">2050</span>];</span><br><span class="line">ll dp_up[<span class="number">2050</span>]=&#123;<span class="number">0</span>&#125;,dp_down[<span class="number">2050</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">Abs</span><span class="params">(ll n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">0</span>) <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">return</span> -n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt;N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;arr[i];</span><br><span class="line">        arr_s[i]=arr[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(arr_s,arr_s+N);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++)&#123;</span><br><span class="line">            dp_up[j]+=Abs(arr[i]-arr_s[j]);</span><br><span class="line">            dp_down[j]+=Abs(arr[i]-arr_s[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;N;j++)&#123;</span><br><span class="line">            dp_up[j]=<span class="built_in">min</span>(dp_up[j<span class="number">-1</span>],dp_up[j]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=N<span class="number">-2</span>;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">            dp_down[j]=<span class="built_in">min</span>(dp_down[j],dp_down[j+<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ll res=dp_up[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++)&#123;</span><br><span class="line">        res=<span class="built_in">min</span>(res,dp_up[j]);</span><br><span class="line">        res=<span class="built_in">min</span>(res,dp_down[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;res;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Space-Elevator"><a href="#Space-Elevator" class="headerlink" title="Space Elevator"></a><span id="t4">Space Elevator</span></h2><p>题目描述：给定K个数字，每个数字hi有ci个且该数字只能在ai范围内使用，问这些数字可以组合出的最大数字。</p>
+<p>样例输入：</p>
+<blockquote>
+<p>3<br>7 40 3<br>5 23 8<br>2 52 6</p>
+</blockquote>
+<p>样例输出：</p>
+<blockquote>
+<p>48</p>
+</blockquote>
+<p>思路：多重背包，注意每次取数字时不能超过范围。二维的bool数组$ dp[i][j] $表示前i个数是否可以组合成j，可以的话为true。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> K;</span><br><span class="line"><span class="keyword">bool</span> dp[<span class="number">405</span>][<span class="number">40050</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> h,a,c;</span><br><span class="line">&#125;arr[<span class="number">405</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node n1,node n2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n1.a==n2.a) <span class="keyword">return</span> n1.h&gt;n2.h;</span><br><span class="line">    <span class="keyword">return</span> n1.a&lt;n2.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; K;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;K;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;arr[i].h&gt;&gt;arr[i].a&gt;&gt;arr[i].c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(arr,arr+K,cmp);</span><br><span class="line">    </span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=arr[<span class="number">0</span>].c;k++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(k*arr[<span class="number">0</span>].h&gt;arr[<span class="number">0</span>].a)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">1</span>][k*arr[<span class="number">0</span>].h]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=K;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=arr[i<span class="number">-2</span>].a;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[i<span class="number">-1</span>][j])&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=arr[i<span class="number">-1</span>].c&amp;&amp;(j+k*arr[i<span class="number">-1</span>].h&lt;=arr[i<span class="number">-1</span>].a);k++)&#123;</span><br><span class="line">                    dp[i][j+k*arr[i<span class="number">-1</span>].h]=<span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=arr[K<span class="number">-1</span>].a;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[K][j]) res=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;res;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优化：上述代码虽然可以过，但复杂度O(n^3)还可以优化成O(n^2)，即$ dp[i][j] $记录的是组成数字j后数字i的剩余个数，并且这个二维的dp数组还可以优化成一维的。</p>
+<p>代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> K;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">40050</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> h,a,c;</span><br><span class="line">&#125;arr[<span class="number">405</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node n1,node n2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n1.a==n2.a) <span class="keyword">return</span> n1.h&gt;n2.h;</span><br><span class="line">    <span class="keyword">return</span> n1.a&lt;n2.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; K;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;K;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt;arr[i].h&gt;&gt;arr[i].a&gt;&gt;arr[i].c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(arr,arr+K,cmp);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=arr[K<span class="number">-1</span>].a;i++)&#123;</span><br><span class="line">        dp[i]=<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;K;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=arr[i].a;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[j]!=<span class="number">-1</span>)&#123;</span><br><span class="line">                dp[j]=arr[i].c;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j&gt;=arr[i].h&amp;&amp;dp[j-arr[i].h]&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                dp[j]=dp[j-arr[i].h]<span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=arr[K<span class="number">-1</span>].a;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[j]&gt;=<span class="number">0</span>) &#123;</span><br><span class="line">            res=j;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Cow-Exhibition"><a href="#Cow-Exhibition" class="headerlink" title="Cow Exhibition"></a><span id="t5">Cow Exhibition</span></h2><p>题目描述：给定若干物品N，每个物品有两个权重s和f（-1000&lt;=s,f&lt;=1000），问你选若干物品两权重最大和为多少，要求每个权重的和都不为负。</p>
+<p>样例输入：</p>
+<blockquote>
+<p>5<br>-5 7<br>8 -6<br>6 -3<br>2 1<br>-8 -5</p>
+</blockquote>
+<p>样例输出：</p>
+<blockquote>
+<p>8</p>
+</blockquote>
+<p>思路：01背包的变种，将s看作容量，f看作价值，$ dp[i] $表示容量为i时的最大价值，因为s和f可能为负，则把所有s都加上1000，为了保证背包容量不为负，假设初始容量为1e6，即一件物品都不选时的初始容量最大价值为零dp[1e6]=0，那么只需保证最后的容量大于等于1e6即可，结果为i-1e6+dp[i]的最大值。</p>
+<p>还需注意的是01背包因为价值为正，默认是从后向前遍历，但这题价值有可能为负，为负数时便利顺序应该反过来。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN=<span class="number">210000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ini=<span class="number">100000</span>;</span><br><span class="line"><span class="keyword">int</span> N,si,fi;</span><br><span class="line"><span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> s,f;</span><br><span class="line">&#125;a[<span class="number">105</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[MAXN]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a[i].s&gt;&gt;a[i].f;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;MAXN;i++) dp[i]=<span class="number">-1e9</span>;</span><br><span class="line">    dp[ini]=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i].s&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=MAXN;j&gt;=a[i].s;j--)&#123;</span><br><span class="line">                dp[j]=<span class="built_in">max</span>(dp[j],dp[j-a[i].s]+a[i].f);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;MAXN+a[i].s;j++)&#123;</span><br><span class="line">                dp[j]=<span class="built_in">max</span>(dp[j],dp[j-a[i].s]+a[i].f);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=ini;i&lt;MAXN;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(dp[i]&gt;=<span class="number">0</span>) res=<span class="built_in">max</span>(res,i-ini+dp[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;res&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">完全监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/14/2020/7/dcpdn/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020/7/cycle_dehaze" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/13/2020/7/cycle_dehaze/">Cycle-Dehaze:加强版CycleGAN用于去雾</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/13/2020/7/cycle_dehaze/" class="archive-article-date">
-  	<time datetime="2020-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要：在这篇文章中，作者提出了一个端到端的网络，称为循环去雾网络，用于单个图像去雾问题，它不需要成对的雾图和相应的原图进行训练。也就是说，通过以不成对的方式输入清晰模糊的图像来训练网络。此外，所提出的方法不依赖于大气散射模型参数的估计。通过结合循环一致性和感知损失来增强循环主公式，以提高纹理信息恢复的质量，并生成更好的无雾霾图像。通常，深度学习模型以低分辨率图像作为输入，并产生低分辨率输出。然而，在NTIRE2018单幅图像去雾挑战中，提供了高分辨率图像。因此，作者应用双三次缩减。从网络获得低分辨率输出后，利用拉普拉斯金字塔将输出图像提升到原始分辨率。</p>
-        
-          <a class="article-more-a" href="/2020/07/13/2020/7/cycle_dehaze/#more">more >></a>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -275,513 +290,16 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">无监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/13/2020/7/cycle_dehaze/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020/7/aodnet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/12/2020/7/aodnet/">端到端去雾网络：AOD-Net</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/12/2020/7/aodnet/" class="archive-article-date">
-  	<time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要：本文提出了一种用卷积神经网络（CNN）构建的图像去雾模型，称为一体化除雾网络（AOD-Net）。它是基于重新配制的大气散射模型设计的。 AOD-Net不是像大多数先前模型那样分别估算传输矩阵和大气光，而是通过轻量级CNN直接生成清晰图像。这种新颖的端到端设计使得将AOD-Net嵌入到其他深度模型（例如，faster R-CNN）中变得容易，以改善对模糊图像的高级任务性能。在合成和自然模糊图像数据集上的实验结果证明了我们在PSNR，SSIM和主观视觉质量方面优于现有技术的优越性能。此外，作者还将AOD-Net与faster R-CNN连接并从头到尾联合训练，发现对模糊图像的对象检测性能有大幅提升。</p>
-        
-          <a class="article-more-a" href="/2020/07/12/2020/7/aodnet/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">完全监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/12/2020/7/aodnet/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020/7/dehaze_cgan" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/12/2020/7/dehaze_cgan/">利用条件生成对抗网络去雾</a>
-    </h1>
-  
-
-        
-        <a href="/2020/07/12/2020/7/dehaze_cgan/" class="archive-article-date">
-  	<time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要：这篇文章提出了一种从模糊图像直接恢复清晰图像的算法。 大多数现有算法经常使用人工制作的方法（例如暗通道，色差，最大对比度）来估计透射图，然后估算大气光。 相比之下，作者基于条件生成对抗网络（cGAN）解决了此问题，在该网络中，清晰图像是通过端到端可训练神经网络估计的。 与基本cGAN中的生成网络不同，作者提出了一种编码器和解码器体系结构，以便可以产生更好的结果。 为了生成逼真的图像，通过引入VGG功能和先验的L1正则化梯度进一步修改了基本的cGAN公式。 同时作者还合成了一个模糊的数据集，包括室内和室外场景，以训练和评估所提出的算法。 </p>
-        
-          <a class="article-more-a" href="/2020/07/12/2020/7/dehaze_cgan/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">去雾</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">完全监督</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/12/2020/7/dehaze_cgan/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020/6/badkids" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/14/2020/6/badkids/">隐秘的角落</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/14/2020/6/badkids/" class="archive-article-date">
-  	<time datetime="2020-05-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div align="left">
-<img src="/img/2020/6/badkids/fm.jpg" alt="drawing" style="width:800px;"/>
-</div>
-
-
-<p>最近非常火的一部网剧!</p>
-        
-          <a class="article-more-a" href="/2020/05/14/2020/6/badkids/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/14/2020/6/badkids/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020/5/pythongui编程之tkinter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/12/2020/5/pythongui%E7%BC%96%E7%A8%8B%E4%B9%8Btkinter/">python图形开发库—tkinter</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/12/2020/5/pythongui%E7%BC%96%E7%A8%8B%E4%B9%8Btkinter/" class="archive-article-date">
-  	<time datetime="2020-05-12T13:17:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>tkinter是python提供的的图形开发界面库，Tkinter 模块(Tk 接口)是 Python 的标准 Tk GUI 工具包的接口 .Tk 和 Tkinter 可以在大多数的 Unix 平台下使用,同样可以应用在 Windows 和 Macintosh 系统里。Tk8.0 的后续版本可以实现本地窗口风格,并良好地运行在绝大多数平台中面。</p>
-        
-          <a class="article-more-a" href="/2020/05/12/2020/5/pythongui%E7%BC%96%E7%A8%8B%E4%B9%8Btkinter/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gui</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/12/2020/5/pythongui%E7%BC%96%E7%A8%8B%E4%B9%8Btkinter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020/5/哲学家进餐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/2020/5/%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90/">【leetcode 1226】哲学家进餐</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/02/2020/5/%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90/" class="archive-article-date">
-  	<time datetime="2020-05-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>题目描述:5 个沉默寡言的哲学家围坐在圆桌前，每人面前一盘意面。叉子放在哲学家之间的桌面上。（5 个哲学家，5 根叉子）<br>所有的哲学家都只会在思考和进餐两种行为间交替。哲学家只有同时拿到左边和右边的叉子才能吃到面，而同一根叉子在同一时间只能被一个哲学家使用。每个哲学家吃完面后都需要把叉子放回桌面以供其他哲学家吃面。只要条件允许，哲学家可以拿起左边或者右边的叉子，但在没有同时拿到左右叉子时不能进食。</p>
-<p>假设面的数量没有限制，哲学家也能随便吃，不需要考虑吃不吃得下。<br>设计一个进餐规则（并行算法）使得每个哲学家都不会挨饿；也就是说，在没有人知道别人什么时候想吃东西或思考的情况下，每个哲学家都可以在吃饭和思考之间一直交替下去。</p>
-        
-          <a class="article-more-a" href="/2020/05/02/2020/5/%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多进程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/02/2020/5/%E5%93%B2%E5%AD%A6%E5%AE%B6%E8%BF%9B%E9%A4%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2020/2/weandbad" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/14/2020/2/weandbad/">我们与恶的距离</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/14/2020/2/weandbad/" class="archive-article-date">
-  	<time datetime="2020-02-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div align="left">
-<img src="/img/2020/2/weandbad/sqp.jpg" alt="drawing" style="width:800px;"/>
-</div>
-既是一部职场剧也是一部反映社会现实的剧。
-感觉剧中每个人似乎都是恶人。
-是不是自己某时刻也成了恶人呢？细思极恐。(⊙﹏⊙)
-
-<p>主题曲《路过人间》超级好听 (◡‿◡)</p>
-        
-          <a class="article-more-a" href="/2020/02/14/2020/2/weandbad/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">挑战程序设计竞赛</a>
         		</li>
       		
 		</ul>
@@ -790,16 +308,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/14/2020/2/weandbad/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/19/2020/8/dp_har/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/16/2020/8/dp_mid/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">优化动态规划关系式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -819,12 +396,14 @@
 
 
 
+  
+  
+  
 
   
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+
   
 
 
@@ -847,8 +426,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
